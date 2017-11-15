@@ -8,6 +8,8 @@ class BlindUI
     Blind* blind;
 public:
     BlindUI();
+    Blind *getBlind() const;
+    void setBlind(Blind *value);
 };
 
 #endif // BLINDUI_H

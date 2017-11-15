@@ -7,10 +7,13 @@
 
 class Room
 {
+protected:
     QVector <Window*> windows;
     QVector <Heat*> heaters;
     int numOfWindows;
     int numOfHeaters;
+    int temperature;
+    int lightness;
 
 public:
     Room();
@@ -18,6 +21,10 @@ public:
     void setNumOfWindows(int value);
     int getNumOfHeaters() const;
     void setNumOfHeaters(int value);
+    int getLightness() const;
+    void setLightness(int value);
+    int getTemperature() const;
+    void setTemperature(int value);
 };
 
 #endif // ROOM_H

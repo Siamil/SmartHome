@@ -33,7 +33,14 @@ SOURCES += \
     window.cpp \
     room.cpp \
     blindui.cpp \
-    windowui.cpp
+    windowui.cpp \
+    kitchen.cpp \
+    bedroom.cpp \
+    hall.cpp \
+    kitchenui.cpp \
+    houseui.cpp \
+    hallui.cpp \
+    bedroomui.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,7 +51,14 @@ HEADERS += \
     window.h \
     room.h \
     blindui.h \
-    windowui.h
+    windowui.h \
+    kitchen.h \
+    bedroom.h \
+    hall.h \
+    kitchenui.h \
+    houseui.h \
+    hallui.h \
+    bedroomui.h
 
 FORMS += \
         mainwindow.ui

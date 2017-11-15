@@ -4,10 +4,13 @@
 
 class Window
 {
+    bool open = true;
 public:
     Window();
-    void close();
-    void open();
+
+
+    bool getOpen() const;
+    void setOpen(bool value);
 };
 
 #endif // WINDOW_H

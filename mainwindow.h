@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPainter>
+#include "houseui.h"
 
 namespace Ui {
 class MainWindow;
@@ -10,13 +12,23 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    HouseUI *houseUI;
+    House *house;
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void paintEvent(QPaintEvent* e);
+
+private slots:
+
+
+    void on_bKitchen_clicked();
+
+    void on_bBedroom_clicked();
 
 private:
     Ui::MainWindow *ui;
+
 };
 
 #endif // MAINWINDOW_H

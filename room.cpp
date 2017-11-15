@@ -20,7 +20,27 @@ void Room::setNumOfHeaters(int value)
     numOfHeaters = value;
 }
 
+int Room::getLightness() const
+{
+    return lightness;
+}
+
+void Room::setLightness(int value)
+{
+    lightness = value;
+}
+
+int Room::getTemperature() const
+{
+    return temperature;
+}
+
+void Room::setTemperature(int value)
+{
+    temperature = value;
+}
+
 Room::Room()
 {
-
+    
 }
