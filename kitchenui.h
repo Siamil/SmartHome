@@ -7,13 +7,17 @@
 #include <windowui.h>
 #include <QVector>
 #include <QStyleOption>
+#include "room.h"
+#include "heatui.h"
 
-class KitchenUI : public QWidget
+class KitchenUI : public QWidget, public Room
 {
     Q_OBJECT
     Kitchen* kitchenPtr;
     QVector<WindowUI*> windowsUI;
-    QVector<QPoint*> points;
+    QVector<HeatUI*> heatersUI;
+    QVector<QPoint> points;
+    int h,w;
 public:
     KitchenUI(QWidget *parent = 0);
 
@@ -22,6 +26,7 @@ public:
     void drawWindows(QPainter *painter);
     void setGraphs(QPainter *painter);
     void setPoints();
+    void drawHeats(QPainter *painter);
 
 
 

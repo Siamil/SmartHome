@@ -10,8 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->bKitchen, SIGNAL(clicked(bool)), ui->kitchenUI, SLOT(update()));
     house = new House();
+    house->initialize();
     ui->kitchenUI->Initialize(house->getKitchen());
-    houseUI = new HouseUI(house);
+   // houseUI = new HouseUI(house);
 
 
 }
@@ -36,4 +37,27 @@ void MainWindow::on_bKitchen_clicked()
 void MainWindow::on_bBedroom_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_bKclosewindows_clicked()
+{
+    house->closeWindows();
+}
+
+
+
+
+void MainWindow::on_bKopenwindows_clicked()
+{
+    house->openWindows();
+}
+
+void MainWindow::on_bHeatTurnOn_clicked()
+{
+    house->turnOnHeat();
+}
+
+void MainWindow::on_bHeatTurnOff_clicked()
+{
+    house->turnOffHeat();
 }

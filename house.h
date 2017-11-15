@@ -19,6 +19,7 @@ class House
 
 public:
     House();
+    void initialize();
 
 
     int getNumOfRooms() const;
@@ -33,6 +34,11 @@ public:
     void setLightness(int value);
     int getTemperature() const;
     void setTemperature(int value);
+    void closeWindows();
+    void openWindows();
+    void turnOnHeat();
+    void turnOffHeat();
+
 };
 
 #endif // HOUSE_H

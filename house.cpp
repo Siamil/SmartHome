@@ -62,14 +62,43 @@ void House::setTemperature(int value)
     temperature = value;
 }
 
+void House::closeWindows()
+{
+
+    for (int i = 0; i < kitchen->getNumOfWindows(); i++)
+        kitchen->getWindow(i)->setOpen(false);
+}
+
+void House::openWindows()
+{
+    for (int i = 0; i < kitchen->getNumOfWindows(); i++)
+        kitchen->getWindow(i)->setOpen(true);
+}
+
+void House::turnOnHeat()
+{
+    for (int i = 0; i < kitchen->getNumOfHeaters(); i++)
+        kitchen->getHeat(i)->setIsTurned(true);
+}
+
+void House::turnOffHeat()
+{
+    for (int i = 0; i < kitchen->getNumOfHeaters(); i++)
+        kitchen->getHeat(i)->setIsTurned(false);
+}
+
 House::House()
 {
 
-    kitchen = new Kitchen();
+
+
+}
+
+void House::initialize()
+{
+    kitchen = new Kitchen(2, 1);
     hall = new Hall();
     bedroom = new Bedroom();
-    kitchen->setNumOfWindows(2);
-    kitchen->setNumOfHeaters(1);
     hall->setNumOfWindows(3);
     hall->setNumOfHeaters(2);
     bedroom->setNumOfHeaters(2);

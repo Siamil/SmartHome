@@ -4,10 +4,12 @@
 
 class Heat
 {
+    bool isTurned = true;
 public:
     Heat();
-    void turnOn();
-    void turnOff();
+
+    bool getIsTurned() const;
+    void setIsTurned(bool value);
 };
 
 #endif // HEAT_H

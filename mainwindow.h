@@ -26,6 +26,19 @@ private slots:
 
     void on_bBedroom_clicked();
 
+    void on_bKclosewindows_clicked();
+
+
+
+    void on_bKopenwindows_clicked();
+
+
+
+
+    void on_bHeatTurnOn_clicked();
+
+    void on_bHeatTurnOff_clicked();
+
 private:
     Ui::MainWindow *ui;
 

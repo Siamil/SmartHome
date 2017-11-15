@@ -40,7 +40,8 @@ SOURCES += \
     kitchenui.cpp \
     houseui.cpp \
     hallui.cpp \
-    bedroomui.cpp
+    bedroomui.cpp \
+    heatui.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -58,7 +59,8 @@ HEADERS += \
     kitchenui.h \
     houseui.h \
     hallui.h \
-    bedroomui.h
+    bedroomui.h \
+    heatui.h
 
 FORMS += \
         mainwindow.ui
