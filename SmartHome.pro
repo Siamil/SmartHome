@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -41,7 +42,12 @@ SOURCES += \
     houseui.cpp \
     hallui.cpp \
     bedroomui.cpp \
-    heatui.cpp
+    heatui.cpp \
+    door.cpp \
+    doorui.cpp \
+    server.cpp \
+    client.cpp \
+    lightui.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -60,7 +66,15 @@ HEADERS += \
     houseui.h \
     hallui.h \
     bedroomui.h \
-    heatui.h
+    heatui.h \
+    door.h \
+    doorui.h \
+    server.h \
+    client.h \
+    lightui.h
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+    rscr.qrc

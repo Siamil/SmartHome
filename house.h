@@ -12,9 +12,10 @@ class House
 {
     int temperature;
     int lightness;
-    Kitchen *kitchen;
-    Hall *hall;
-    Bedroom *bedroom;
+    Room *kitchen;
+    Room *hall;
+    Room *bedroom;
+    QVector<Room*> rooms;
     int numOfRooms;
 
 public:
@@ -24,20 +25,29 @@ public:
 
     int getNumOfRooms() const;
     void setNumOfRooms(int value);
-    Bedroom *getBedroom() const;
-    void setBedroom(Bedroom *value);
-    Hall *getHall() const;
-    void setHall(Hall *value);
-    Kitchen *getKitchen() const;
-    void setKitchen(Kitchen *value);
+    Room *getBedroom() const;
+    void setBedroom(Room *value);
+    Room *getHall() const;
+    void setHall(Room *value);
+    Room *getKitchen() const;
+    void setKitchen(Room *value);
     int getLightness() const;
     void setLightness(int value);
     int getTemperature() const;
     void setTemperature(int value);
-    void closeWindows();
-    void openWindows();
-    void turnOnHeat();
-    void turnOffHeat();
+    void closeWindows(Room* room);
+    void openWindows(Room* room);
+    void turnOnHeat(Room* room);
+    void turnOffHeat(Room* room);
+    void closeDoors(Room* room);
+    void openDoors(Room* room);
+    void closeAllWindows();
+    void openAllWindows();
+    void turnOnAllHeat();
+    void turnOffAllHeat();
+    void closeAllDoors();
+    void openAllDoors();
+
 
 };
 

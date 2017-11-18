@@ -5,14 +5,9 @@
 
 class Bedroom : public Room
 {
-    QVector <Window*> windows;
-    QVector <Heat*> heaters;
-    int numOfWindows;
-    int numOfHeaters;
-    int temperature;
-    int lightness;
+
 public:
-    Bedroom();
+    Bedroom(int numOfWindows, int numOfHeaters, int numOfDoors);
 };
 
 #endif // BEDROOM_H

@@ -39,6 +39,14 @@ private slots:
 
     void on_bHeatTurnOff_clicked();
 
+    void on_bOpenDoors_clicked();
+
+    void on_bCloseDoors_clicked();
+
+    void on_bHall_clicked();
+
+    void on_bHouse_clicked();
+
 private:
     Ui::MainWindow *ui;
 

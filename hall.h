@@ -3,17 +3,13 @@
 #include "room.h"
 
 
+
 class Hall : public Room
 {
-    QVector <Window*> windows;
-    QVector <Heat*> heaters;
-    int numOfWindows;
-    int numOfHeaters;
-    int temperature;
-    int lightness;
+
 public:
 
-    Hall();
+    Hall(int numOfWindows, int numOfHeaters, int numOfDoors);
 };
 
 #endif // HALL_H

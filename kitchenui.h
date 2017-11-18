@@ -9,14 +9,18 @@
 #include <QStyleOption>
 #include "room.h"
 #include "heatui.h"
+#include "doorui.h"
+#include "lightui.h"
 
-class KitchenUI : public QWidget, public Room
+class KitchenUI : public QWidget
 {
     Q_OBJECT
-    Kitchen* kitchenPtr;
+    Room* kitchenPtr;
     QVector<WindowUI*> windowsUI;
     QVector<HeatUI*> heatersUI;
+    QVector<DoorUI*>doorsUI;
     QVector<QPoint> points;
+    LightUI *lightUI;
     int h,w;
 public:
     KitchenUI(QWidget *parent = 0);
@@ -27,10 +31,13 @@ public:
     void setGraphs(QPainter *painter);
     void setPoints();
     void drawHeats(QPainter *painter);
+    void drawDoors(QPainter *painter);
+    void drawLight(QPainter *painter);
+    void fillFrame(QPainter *painter);
 
 
 
-    void Initialize(Kitchen *value);
+    void Initialize(Room *value);
 
 signals:
 

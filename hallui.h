@@ -3,21 +3,34 @@
 
 #include <QWidget>
 #include <room.h>
+#include "hall.h"
+#include "heatui.h"
+#include "doorui.h"
+#include "windowui.h"
+#include "kitchenui.h"
 
 
 class HallUI : public QWidget
 {
     Q_OBJECT
-    Room* room;
+    Room* hallPtr;
+    QVector<WindowUI*> windowsUI;
+    QVector<HeatUI*> heatersUI;
+    QVector<DoorUI*>doorsUI;
+    QVector<QPoint> points;
+    int h,w;
 public:
-    explicit HallUI(QWidget *parent = 0);
-    HallUI(Room* room);
+    HallUI(QWidget *parent = 0);
+
+    void paintEvent(QPaintEvent* e);
     void drawFrame(QPainter *painter);
     void drawWindows(QPainter *painter);
-
-
-    Room *getRoom() const;
-    void setRoom(Room *value);
+    void setGraphs(QPainter *painter);
+    void setPoints();
+    void drawHeats(QPainter *painter);
+    void drawDoors(QPainter *painter);
+    void Initialize(Room *value);
+    void fillFrame(QPainter *painter);
 
 signals:
 

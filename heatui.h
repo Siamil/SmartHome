@@ -9,10 +9,12 @@ class HeatUI
 {
     Heat* heat;
 
+
 public:
-    void draw(QPainter *painter, QSize size, QPoint point);
+    void draw(QPainter *painter, QSize size, QPoint point, qreal angle);
     HeatUI();
     void setHeat(Heat *value);
+
 };
 
 #endif // HEATUI_H

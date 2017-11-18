@@ -1,29 +1,13 @@
 #include "kitchen.h"
+#include "room.h"
 
-int Kitchen::getNumOfWindows() const
-{
-    return numOfWindows;
-}
 
-void Kitchen::setNumOfWindows(int value)
-{
-    numOfWindows = value;
-}
 
-int Kitchen::getNumOfHeaters() const
+Kitchen::Kitchen(int numOfWindows, int numOfHeaters, int numOfDoors) :Room()
 {
-    return numOfHeaters;
-}
-
-void Kitchen::setNumOfHeaters(int value)
-{
-    numOfHeaters = value;
-}
-
-Kitchen::Kitchen(int numOfWindows, int numOfHeaters)
-{
-    this->numOfWindows=numOfWindows;
-    this->numOfHeaters=numOfHeaters;
+    this->numOfWindows = numOfWindows;
+    this->numOfHeaters = numOfHeaters;
+    this->numOfDoors = numOfDoors;
     for (int i =0; i < this->getNumOfWindows(); i++)
     {
         Window *window = new Window();
@@ -35,14 +19,12 @@ Kitchen::Kitchen(int numOfWindows, int numOfHeaters)
         Heat *heat = new Heat();
         heaters.push_back(heat);
     }
+    for (int j =0; j < this->getNumOfDoors(); j++)
+    {
+        Door *door = new Door();
+        doors.push_back(door);
+    }
+    light = new Light();
 }
 
-Window *Kitchen::getWindow(int index)
-{
-    return windows[index];
-}
 
-Heat *Kitchen::getHeat(int index)
-{
-    return heaters[index];
-}

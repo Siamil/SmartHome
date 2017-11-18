@@ -1,5 +1,34 @@
 #include "room.h"
+Light *Room::getLight() const
+{
+    return light;
+}
 
+void Room::setLight(Light *value)
+{
+    light = value;
+}
+
+Room::Room()
+{
+
+}
+
+Window *Room::getWindow(int index)
+{
+    return windows[index];
+}
+
+Heat *Room::getHeat(int index)
+{
+    return heaters[index];
+}
+
+Door *Room::getDoor(int index)
+{
+    return doors[index];
+
+}
 int Room::getNumOfWindows() const
 {
     return numOfWindows;
@@ -20,27 +49,12 @@ void Room::setNumOfHeaters(int value)
     numOfHeaters = value;
 }
 
-int Room::getLightness() const
+int Room::getNumOfDoors() const
 {
-    return lightness;
+    return numOfDoors;
 }
 
-void Room::setLightness(int value)
+void Room::setNumOfDoors(int value)
 {
-    lightness = value;
-}
-
-int Room::getTemperature() const
-{
-    return temperature;
-}
-
-void Room::setTemperature(int value)
-{
-    temperature = value;
-}
-
-Room::Room()
-{
-    
+    numOfDoors = value;
 }

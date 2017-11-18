@@ -10,14 +10,13 @@
 class WindowUI
 {
     Window *window;
-    qreal angle;
+
 public:
     WindowUI();
     Window *getWindow() const;
     void setWindow(Window *value);
-    void draw(QPainter *painter, QSize size, QPoint point, QPoint point2);
-    qreal getAngle() const;
-    void setAngle(const qreal value);
+    void draw(QPainter *painter, QSize size, QPoint point, QPoint point2, qreal angle);
+
 };
 
 #endif // WINDOWUI_H

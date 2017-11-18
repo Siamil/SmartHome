@@ -4,10 +4,12 @@
 
 class Light
 {
+    bool isTurned;
 public:
     Light();
-    void turnOn();
-    void turnOff();
+
+    bool getIsTurned() const;
+    void setIsTurned(bool value);
 };
 
 #endif // LIGHT_H

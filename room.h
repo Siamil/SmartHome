@@ -3,6 +3,8 @@
 #include <window.h>
 #include <QVector>
 #include "heat.h"
+#include "door.h"
+#include "light.h"
 
 
 class Room
@@ -10,21 +12,27 @@ class Room
 protected:
     QVector <Window*> windows;
     QVector <Heat*> heaters;
+    QVector <Door*> doors;
+    Light *light;
     int numOfWindows;
     int numOfHeaters;
+    int numOfDoors;
     int temperature;
     int lightness;
 
 public:
     Room();
+    Window *getWindow(int index);
+    Heat *getHeat(int index);
+    Door *getDoor(int index);
     int getNumOfWindows() const;
     void setNumOfWindows(int value);
     int getNumOfHeaters() const;
     void setNumOfHeaters(int value);
-    int getLightness() const;
-    void setLightness(int value);
-    int getTemperature() const;
-    void setTemperature(int value);
+    int getNumOfDoors() const;
+    void setNumOfDoors(int value);
+    Light *getLight() const;
+    void setLight(Light *value);
 };
 
 #endif // ROOM_H
