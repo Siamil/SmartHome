@@ -24,6 +24,8 @@ void HallUI::Initialize(Room *value)
         doorUI->setDoor(hallPtr->getDoor(j));
         doorsUI.push_back(doorUI);
     }
+    lightUI = new LightUI();
+    lightUI ->setLight(hallPtr->getLight());
 }
 
 void HallUI::fillFrame(QPainter *painter)
@@ -63,6 +65,7 @@ void HallUI::paintEvent(QPaintEvent *e)
     this->setStyleSheet(" border: 3px solid black;");
     drawFrame(&painter);
     fillFrame(&painter);
+    drawLight(&painter);
     drawWindows(&painter);
     drawHeats(&painter);
     drawDoors(&painter);
@@ -150,4 +153,10 @@ void HallUI::drawDoors(QPainter *painter)
 {
     doorsUI[0] -> draw(painter, this->size(), points[8], points[9], 90);
 
+}
+
+void HallUI::drawLight(QPainter *painter)
+{
+    QPoint point(w/2, h/2);
+    lightUI -> draw(painter, this->size(), point );
 }

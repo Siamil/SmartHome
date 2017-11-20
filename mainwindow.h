@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
     HouseUI *houseUI;
     House *house;
+    Room* activeRoom;
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -46,6 +47,10 @@ private slots:
     void on_bHall_clicked();
 
     void on_bHouse_clicked();
+
+    void on_bTurnLight_clicked();
+
+    void on_bTurnOffLight_clicked();
 
 private:
     Ui::MainWindow *ui;

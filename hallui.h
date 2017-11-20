@@ -8,6 +8,7 @@
 #include "doorui.h"
 #include "windowui.h"
 #include "kitchenui.h"
+#include "lightui.h"
 
 
 class HallUI : public QWidget
@@ -18,6 +19,7 @@ class HallUI : public QWidget
     QVector<HeatUI*> heatersUI;
     QVector<DoorUI*>doorsUI;
     QVector<QPoint> points;
+    LightUI *lightUI;
     int h,w;
 public:
     HallUI(QWidget *parent = 0);
@@ -29,6 +31,7 @@ public:
     void setPoints();
     void drawHeats(QPainter *painter);
     void drawDoors(QPainter *painter);
+    void drawLight(QPainter *painter);
     void Initialize(Room *value);
     void fillFrame(QPainter *painter);
 

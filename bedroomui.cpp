@@ -24,6 +24,8 @@ void BedroomUI::Initialize(Room *value)
         doorUI->setDoor(bedroomPtr->getDoor(j));
         doorsUI.push_back(doorUI);
     }
+    lightUI = new LightUI();
+    lightUI ->setLight(bedroomPtr->getLight());
 }
 
 void BedroomUI::fillFrame(QPainter *painter)
@@ -67,6 +69,7 @@ void BedroomUI::paintEvent(QPaintEvent *e)
     drawWindows(&painter);
     drawHeats(&painter);
     drawDoors(&painter);
+    drawLight(&painter);
 
 
 }
@@ -105,7 +108,6 @@ void BedroomUI::drawWindows(QPainter *painter)
 
 
     windowsUI[0]->draw(painter, this->size(), points[5], points[6], 0);
-    // windowsUI[1]->draw(painter, this->size(), points[12], points[11], 180);
 
 }
 
@@ -144,6 +146,12 @@ void BedroomUI::drawHeats(QPainter *painter)
 {
     heatersUI[0] -> draw(painter, this->size(), points[2], 90);
     heatersUI[1] -> draw(painter, this->size(), points[3], 90);
+}
+
+void BedroomUI::drawLight(QPainter *painter)
+{
+    QPoint point(w/2, h/2);
+    lightUI -> draw(painter, this->size(), point);
 }
 
 void BedroomUI::drawDoors(QPainter *painter)

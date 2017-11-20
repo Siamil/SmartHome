@@ -10,6 +10,7 @@
 #include "kitchenui.h"
 #include "bedroom.h"
 
+
 class BedroomUI : public QWidget
 {
     Q_OBJECT
@@ -18,6 +19,7 @@ class BedroomUI : public QWidget
     QVector<HeatUI*> heatersUI;
     QVector<DoorUI*>doorsUI;
     QVector<QPoint> points;
+    LightUI *lightUI;
     int h,w;
 public:
     BedroomUI(QWidget *parent = 0);
@@ -28,6 +30,7 @@ public:
     void setGraphs(QPainter *painter);
     void setPoints();
     void drawHeats(QPainter *painter);
+    void drawLight(QPainter *painter);
     void drawDoors(QPainter *painter);
     void Initialize(Room *value);
     void fillFrame(QPainter *painter);

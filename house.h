@@ -5,6 +5,7 @@
 #include "kitchen.h"
 #include "hall.h"
 #include "bedroom.h"
+#include <QJsonDocument>
 
 
 
@@ -41,12 +42,19 @@ public:
     void turnOffHeat(Room* room);
     void closeDoors(Room* room);
     void openDoors(Room* room);
+    void turnOffLight(Room* room);
+    void turnOnLight(Room* room);
     void closeAllWindows();
     void openAllWindows();
     void turnOnAllHeat();
     void turnOffAllHeat();
     void closeAllDoors();
     void openAllDoors();
+    void turnOnAllLight();
+    void turnOffAllLight();
+    QJsonDocument *toJson();
+    void fromJson(QJsonDocument *document);
+
 
 
 };

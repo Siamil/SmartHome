@@ -22,6 +22,7 @@ protected:
 
 public:
     Room();
+    Room(int numOfWindows, int numOfHeaters, int numOfDoors);
     Window *getWindow(int index);
     Heat *getHeat(int index);
     Door *getDoor(int index);

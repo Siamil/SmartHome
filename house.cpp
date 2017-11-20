@@ -99,6 +99,17 @@ void House::openDoors(Room* room)
         room->getDoor(i)->setOpen(true);
 }
 
+void House::turnOffLight(Room *room)
+{
+
+    room->getLight()->setIsTurned(false);
+}
+
+void House::turnOnLight(Room *room)
+{
+    room->getLight()->setIsTurned(true);
+}
+
 void House::closeAllWindows()
 {
     for(int j = 0; j < getNumOfRooms(); j++)
@@ -163,6 +174,89 @@ void House::openAllDoors()
         for (int i = 0; i < room->getNumOfDoors(); i++)
             room->getDoor(i)->setOpen(true);
     }
+}
+
+void House::turnOnAllLight()
+{
+    for(int j = 0; j < getNumOfRooms(); j++)
+    {
+        Room *room = rooms[j];
+        room -> getLight()-> setIsTurned(true);
+    }
+}
+
+void House::turnOffAllLight()
+{
+    for(int j = 0; j < getNumOfRooms(); j++)
+    {
+        Room *room = rooms[j];
+        room -> getLight() -> setIsTurned(false);
+    }
+}
+
+QJsonDocument* House::toJson()
+{
+    QJsonDocument *document = new QJsonDocument();
+    QVector<QJsonObject> jVector;
+    QJsonObject jKitchen;
+    QJsonObject jHall;
+    QJsonObject jBedroom;
+    QJsonObject jHouse;
+    jVector.push_back(jKitchen);
+    jVector.push_back(jHall);
+    jVector.push_back(jBedroom);
+    jVector.push_back(jHouse);
+    for (int i = 0; i < numOfRooms; i++)
+    {
+        Room *room = rooms[i];
+        jVector[i].insert(QString("Heat"), QJsonValue(rooms[i]->getHeat(0)->getIsTurned()));
+        jVector[i].insert(QString("Light"), QJsonValue(rooms[i]->getLight()->getIsTurned()));
+        jVector[i].insert(QString("Door"), QJsonValue(rooms[i]->getDoor(0)->getOpen()));
+        jVector[i].insert(QString("Window"), QJsonValue(rooms[i]->getWindow(0)->getOpen()));
+
+    }
+      jHouse.insert(QString("Kitchen"), QJsonValue(jVector[0]));
+      jHouse.insert(QString("Hall"), QJsonValue(jVector[1]));
+      jHouse.insert(QString("Bedroom"), QJsonValue(jVector[2]));
+      document->setObject(jHouse);
+      return document;
+}
+
+void House::fromJson(QJsonDocument *document)
+{
+
+    QVector<QJsonObject> jVector;
+    QJsonObject jHouse = document->object();
+    QJsonObject jKitchen;
+    jKitchen.insert(QString("Kitchen"), jHouse.value(QString("Kitchen")));
+    QJsonObject jHall;
+    jHall.insert(QString("Hall"), jHouse.value(QString("Hall")));
+    QJsonObject jBedroom;
+    jBedroom.insert(QString("Bedroom"), jHouse.value(QString("Bedroom")));
+    jVector.push_back(jKitchen);
+    jVector.push_back(jHall);
+    jVector.push_back(jBedroom);
+    for (int i = 0; i < numOfRooms; i++)
+    {
+        boolean test = jVector[i].value(QString("Window")).toBool();
+        Room *room = rooms[i];
+       if((jVector[i].value(QString("Window"))).toBool()){
+           openWindows(room);
+       }
+       else closeWindows(room);
+       if((jVector[i].value(QString("Door"))).toBool())
+       {
+           openDoors(room);
+       }
+       else closeDoors(room);
+       if((jVector[i].value(QString("Heat"))).toBool())
+       {
+           turnOnHeat(room);
+       }
+       else turnOffHeat(room);
+
+    }
+
 }
 
 House::House()
