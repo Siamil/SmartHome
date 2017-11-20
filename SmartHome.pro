@@ -45,8 +45,6 @@ SOURCES += \
     heatui.cpp \
     door.cpp \
     doorui.cpp \
-    server.cpp \
-    client.cpp \
     lightui.cpp
 
 HEADERS += \
@@ -69,8 +67,6 @@ HEADERS += \
     heatui.h \
     door.h \
     doorui.h \
-    server.h \
-    client.h \
     lightui.h
 
 FORMS += \

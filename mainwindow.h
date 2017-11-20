@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QPainter>
 #include "houseui.h"
+#include <QTcpServer>
+#include <QTcpSocket>
 
 namespace Ui {
 class MainWindow;
@@ -15,10 +17,30 @@ class MainWindow : public QMainWindow
     HouseUI *houseUI;
     House *house;
     Room* activeRoom;
+    bool isServer;
+
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void paintEvent(QPaintEvent* e);
+
+    bool getIsServer() const;
+    void setIsServer(bool value);
+    QTcpServer* server;
+    QVector<QTcpSocket*> clientSockets;
+
+
+    // Client part
+    QTcpSocket* senderSocket;
+
+public slots:
+    void startServer();
+    void newConnectionToServer();
+    void newMessageToServer();
+    void connectToServer();
+    void sendMessage(QJsonDocument* document);
+    void readMessage();
 
 private slots:
 
@@ -51,6 +73,10 @@ private slots:
     void on_bTurnLight_clicked();
 
     void on_bTurnOffLight_clicked();
+
+    void on_bServer_clicked();
+
+    void on_bClient_clicked();
 
 private:
     Ui::MainWindow *ui;

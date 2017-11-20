@@ -42,11 +42,11 @@
       <widget class="BedroomUI" name="bedroomUI"/>
       <widget class="QWidget" name="houseUI">
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="KitchenUI" name="hKitchenUI" native="true"/>
-        </item>
         <item row="1" column="0">
          <widget class="HallUI" name="hHallUI" native="true"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="KitchenUI" name="hKitchenUI" native="true"/>
         </item>
         <item row="1" column="1">
          <widget class="BedroomUI" name="hBedroomUI" native="true"/>
@@ -57,28 +57,6 @@
     </item>
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="3" column="0">
-       <widget class="QPushButton" name="bHeatTurnOff">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>150</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="text">
-         <string>Wylacz grzejniki</string>
-        </property>
-       </widget>
-      </item>
       <item row="7" column="0">
        <widget class="QPushButton" name="bKopenwindows">
         <property name="sizePolicy">
@@ -114,16 +92,25 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="bHall">
+      <item row="3" column="0">
+       <widget class="QPushButton" name="bHeatTurnOff">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
           <width>150</width>
           <height>50</height>
          </size>
         </property>
+        <property name="layoutDirection">
+         <enum>Qt::RightToLeft</enum>
+        </property>
         <property name="text">
-         <string>Hall</string>
+         <string>Wylacz grzejniki</string>
         </property>
        </widget>
       </item>
@@ -146,6 +133,19 @@
         </property>
         <property name="text">
          <string>Wlacz grzejniki</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="bHall">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Hall</string>
         </property>
        </widget>
       </item>
@@ -246,6 +246,20 @@
         </property>
         <property name="text">
          <string>Wylacz Swiatlo</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QPushButton" name="bServer">
+        <property name="text">
+         <string>server</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QPushButton" name="bClient">
+        <property name="text">
+         <string>client</string>
         </property>
        </widget>
       </item>

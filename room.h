@@ -5,6 +5,7 @@
 #include "heat.h"
 #include "door.h"
 #include "light.h"
+#include <QString>
 
 
 class Room
@@ -19,6 +20,7 @@ protected:
     int numOfDoors;
     int temperature;
     int lightness;
+    QString name;
 
 public:
     Room();
@@ -34,6 +36,8 @@ public:
     void setNumOfDoors(int value);
     Light *getLight() const;
     void setLight(Light *value);
+    QString getName() const;
+    void setName(const QString &value);
 };
 
 #endif // ROOM_H

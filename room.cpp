@@ -9,6 +9,16 @@ void Room::setLight(Light *value)
     light = value;
 }
 
+QString Room::getName() const
+{
+    return name;
+}
+
+void Room::setName(const QString &value)
+{
+    name = value;
+}
+
 Room::Room()
 {
 
